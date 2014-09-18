@@ -39,7 +39,7 @@ keystone.init({
 	'user model': 'Participant',
 	'cookie secret': 'o9nQ.Nt>?CHD{9f*+TF>LD[9b3*UfTV"TO&&I3k"/#qlLqwJEPR!F,J2InlSE{v^',
 
-    'mongo': process.env.MONGO_URI,
+    'mongo': process.env.MONGO_URL,
     'cloudinary config': process.env.CLOUDINARY_URL
 });
 
