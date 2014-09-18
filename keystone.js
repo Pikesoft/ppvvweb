@@ -37,15 +37,15 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'Participant',
-	'cookie secret': 'o9nQ.Nt>?CHD{9f*+TF>LD[9b3*UfTV"TO&&I3k"/#qlLqwJEPR!F,J2InlSE{v^'
+	'cookie secret': 'o9nQ.Nt>?CHD{9f*+TF>LD[9b3*UfTV"TO&&I3k"/#qlLqwJEPR!F,J2InlSE{v^',
 
+    'mongo': process.env.MONGO_URI,
+    'cloudinary config': process.env.CLOUDINARY_URL
 });
 
 // Load your project's Models
 
 keystone.import('models');
-
-keystone.set('cloudinary config', process.env.CLOUDINARY_URL );
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
