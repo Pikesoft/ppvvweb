@@ -40,7 +40,9 @@ keystone.init({
 	'cookie secret': 'o9nQ.Nt>?CHD{9f*+TF>LD[9b3*UfTV"TO&&I3k"/#qlLqwJEPR!F,J2InlSE{v^',
 
     'mongo': process.env.MONGO_URL,
-    'cloudinary config': process.env.CLOUDINARY_URL
+    'cloudinary config': process.env.CLOUDINARY_URL,
+    'mandrill api key': process.env.MANDRILL_API_KEY,
+    'mandrill username': process.env.MANDRILL_USER_NAME
 });
 
 // Load your project's Models
