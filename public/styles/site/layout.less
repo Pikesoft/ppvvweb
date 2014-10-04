@@ -1,3 +1,32 @@
+@base-bg: #fefde6;
+
+html {
+  //background-color: @base-bg;
+  background: #fefde6; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #fefde6 0%, #fdfcea 37%, #fcfbf8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#fefde6), color-stop(37%,#fdfcea), color-stop(100%,#fcfbf8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  #fefde6 0%,#fdfcea 37%,#fcfbf8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #fefde6 0%,#fdfcea 37%,#fcfbf8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #fefde6 0%,#fdfcea 37%,#fcfbf8 100%); /* IE10+ */
+  background: linear-gradient(45deg,  #fefde6 0%,#fdfcea 37%,#fcfbf8 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefde6', endColorstr='#fcfbf8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+body {
+  background: #fefde6; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #fefde6 0%, #fdfcea 37%, #fcfbf8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#fefde6), color-stop(37%,#fdfcea), color-stop(100%,#fcfbf8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  #fefde6 0%,#fdfcea 37%,#fcfbf8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #fefde6 0%,#fdfcea 37%,#fcfbf8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #fefde6 0%,#fdfcea 37%,#fcfbf8 100%); /* IE10+ */
+  background: linear-gradient(45deg,  #fefde6 0%,#fdfcea 37%,#fcfbf8 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefde6', endColorstr='#fcfbf8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.content-container {
+//  background-color: @base-bg;
+}
+
 #header {
 	margin-top: 30px;
 }
@@ -16,14 +45,14 @@
 }
 
 .navbar-default {
-  background-color: #f9f9f9;
+  background-color: @base-bg;
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #555;
-  background-color: #b4ceef;
+  background-color: darken(@base-bg, 10%);
 }
 
 .stupa-background {
@@ -82,7 +111,7 @@
 }
 
 .section {
-  background-color: #fafafa;
+  background-color: lighten(@base-bg, 2%);
   border: solid 1px #eaeaea;
   padding: 10px 20px;
 }
