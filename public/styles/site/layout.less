@@ -1,4 +1,5 @@
 @base-bg: #fefde6;
+@title-font: Papyrus, fantasy;
 
 html {
   height: 100%;
@@ -48,6 +49,11 @@ body {
   background-color: darken(@base-bg, 10%);
 }
 
+.navbar-brand {
+  font-family: @title-font;
+  line-height: 28px;
+}
+
 .stupa-background {
   background-color: #66afe9;
   background-image: url('/images/tashi_gomang_stupa_background5.jpg');
@@ -66,16 +72,23 @@ body {
 }
 
 .header-font {
-  font-family: Papyrus, fantasy;
+  font-family: @title-font;
   font-style: italic;
   color: #060666 !important;
   text-shadow: 1px 2px 2px #444;
 }
 
 .subheader-font {
-  font-family: Papyrus, fantasy;
+  font-family: @title-font;
   color: #ffef80;
   text-shadow: 2px 3px 2px #444;
+}
+
+.page-header {
+  font-family: @title-font;
+  border: none;
+  margin: 20px 0 10px;
+  padding-bottom: 4px;
 }
 
 .column-row {
@@ -85,7 +98,7 @@ body {
 .homepage-content p {
   padding: 15px;
   margin: 20px 0;
-  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;;
   color: #ffef80;
   background: rgb(124, 152, 169);
   background: rgba(24, 52, 69, .3);
@@ -137,23 +150,15 @@ body {
   background: rgba(255, 255, 255, 0.8);
 }
 
-.media-options {
-  display: table;
-}
-
 .media-options-row {
-  display: table-row;
+  margin: 10px 0;
 }
 
 .media-options-row > div {
-//  display: table-cell;
   vertical-align: middle;
-//  padding: 15px 0 10px 0;
 }
 
 .media-options-row > label {
-//  display: table-cell;
   vertical-align: middle;
-//  padding: 15px 20px 10px 30px;
   text-align: right;
 }
