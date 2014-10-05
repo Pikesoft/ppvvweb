@@ -6,8 +6,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Pikes Peak Vajra Vidya</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link href="/styles/site.min.css" rel="stylesheet">
-		
+        <link href="/styles/site.min.css" rel="stylesheet">
+        <link href="/styles/bootstrap/bootstrap.lightbox.css" rel="stylesheet" media="screen">
+
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor 
 			- only renders when user is logged in and admin--}}
 		{{{isAdminEditorCSS user}}}
@@ -100,6 +101,7 @@
 			//- them specifically here, instead of bootstrap-3.2.0.min.js
 		--}}
 		<script src="/js/lib/bootstrap/bootstrap-3.2.0.min.js"></script>
-		{{{isAdminEditorJS user}}}
+        <script src="/js/lib/bootstrap/bootstrap.lightbox.js"></script>
+        {{{isAdminEditorJS user}}}
 	</body>
 </html>
