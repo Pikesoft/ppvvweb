@@ -12,6 +12,7 @@
 					</h5>
 				</header>
 				<div class="post">
+                    {{#if image}}<div class="img-div"><img src="{{{image.url}}}" class="img-responsive"/></div>{{/if}}
                     {{{data.post.content.brief}}}
                     {{{data.post.content.extended}}}
 				</div>
