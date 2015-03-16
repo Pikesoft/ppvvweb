@@ -29,7 +29,8 @@ keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 var routes = {
-	views: importRoutes('./views')
+	views: importRoutes('./views'),
+    api: importRoutes('./api')
 };
 
 // Setup Route Bindings
@@ -45,7 +46,9 @@ exports = module.exports = function(app) {
     app.all('/calendar', routes.views.calendar);
     app.all('/dharma', routes.views.dharma);
     app.all('/about', routes.views.about);
-
+    app.get('/mantras', routes.views.mantras);
+    app.all('/api/mantras', keystone.initAPI, routes.api.mantras.create);
+    app.get('/api/mantras', keystone.initAPI, routes.api.mantras.list);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 	

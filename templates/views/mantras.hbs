@@ -1,0 +1,59 @@
+{{!< default}}
+<div class="container content-container">
+<h1 class="page-header" style="text-align: center;">One Million Mani Mantras for His Holiness Gyalwang Karmapa</h1>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div style="text-align: center;" class="img-div"><img alt="17th Gyalwang Karmapa" src="/images/karmapa_17.jpg" class="img-responsive img-responsive-center"/></div>
+            <h4 style="text-align: center;">Six-syllable mantras of Avalokitshvara recited<br/>with devotion and gratitude to Karmapa Orgyen Trinley Dorje<br/>since Mar 16, 2015:</h4>
+            <h1 id="totalCount" class="mantra-count" style="text-align: center">{{data.currCount}}</h1>
+            <h3 style="text-align: center;">The six-syllable mantra: "OM MA NI PE MAY HUNG"</h3>
+            <div class="img-div"><img alt="Chenrezig's mantra" src="/images/om-mani-padme-hum-mantra.png" class="img-responsive img-responsive-center" width="200px;"/></div>
+            <h3 id="msg" style="text-align: center">Our goal is one million mantras during Karmapa's 2015 US tour. Offer yours here:</h3>
+            <form id="mantraForm" method="post" action="api/mantras">
+                <input type="hidden" name="action" value="mantra">
+                <div class="form-group mantra-input-div {{#if validationErrors.count}}has-error{{/if}}">
+                    <label class=" mantra-input-label">Mantra count this session</label>
+                    <input type="text" id="count" name="count" class="form-control mantra-input" value="{{formData.count}}">
+                </div>
+                <div class="form-group mantra-input-div {{#if validationErrors.message}}has-error{{/if}} ">
+                    <label class=" mantra-input-label">Please type the two words below</label>
+                    <input type="text" id="validate" name="validate" class="form-control mantra-input" value="{{formData.validation}}">
+                </div>
+                <div style="margin:20px 0;">
+                    <img alt="Karmapa's mantra" src="/images/karmapa_captcha.jpg" class="img-responsive img-responsive-center"/>
+                </div>
+                <div class="form-actions mantra-input-div">
+                    <button type="submit" id="btnSubmit" class="btn btn-primary mantra-submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        document.title = "A Million Manis for Karmapa";
+        $('#mantraForm').submit(function(e) {
+            // Stop form from submitting normally
+            e.preventDefault();
+            // Get some values from elements on the page:
+            var $form = $( this ),
+                    count = $form.find( "input[name='count']" ).val(),
+                    validate = $form.find( "input[name='validate']" ).val(),
+                    url = $form.attr( "action" );
+            $.post( url, {
+                'count': count,
+                'validate': validate
+            }).done(function( data ) {
+                console.log("json: " + JSON.stringify(data));
+                if (data.mantras.error) {
+                    $('#msg').empty().append("<div class='has-error'>" + data.mantras.error +"</div>");
+                } else {
+                    var msg = "<div class='great-success'><strong>You submitted " + data.mantras.submitted + " mantras.</strong><br/><br/>Please dedicate the merit to " +
+                            "supreme enlightenment for the immediate and permanent benefit of all beings!</div>";
+                    $('#msg').empty().append(msg);
+                    $('#totalCount').empty().append(data.mantras.totalCount);
+                }
+            });
+        });
+    });
+</script>

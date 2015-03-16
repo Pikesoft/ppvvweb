@@ -9,7 +9,14 @@
         <link href="/styles/site.min.css" rel="stylesheet">
         <link href="/styles/bootstrap/bootstrap.lightbox.css" rel="stylesheet" media="screen">
 
-		{{!-- This file provides the default styling for the KeystoneJS Content Editor 
+        {{!--
+            //- jQuery 1.11.1 is included by default, and required by both Bootstrap
+            //- and the KeystoneJS Content Editor. If you are not targeting IE8,
+            //- you can upgrade to 2.1.1 (also bundled) for better performance.
+        --}}
+        <script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
+
+		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 			- only renders when user is logged in and admin--}}
 		{{{isAdminEditorCSS user}}}
 		
@@ -90,12 +97,6 @@
 				<div class="col-md-6 col-md-offset-3">Pikes Peak Vajra Vidya, 2525 W. Pikes Peak Ave. Suite #B, in Old Colorado City</div>
 			</div>
 		</div>
-		{{!--
-			//- jQuery 1.11.1 is included by default, and required by both Bootstrap
-			//- and the KeystoneJS Content Editor. If you are not targeting IE8,
-			//- you can upgrade to 2.1.1 (also bundled) for better performance.
-		--}}
-		<script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
 		{{!--
 			//- Customise which Bootstrap javascript files are served by including
 			//- them specifically here, instead of bootstrap-3.2.0.min.js
