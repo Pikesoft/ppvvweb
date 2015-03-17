@@ -6,7 +6,7 @@ var Mantra = keystone.list('Mantra');
 exports.create = function(req, res) {
     var item = new Mantra.model(),
         data = (req.method == 'POST') ? req.body : req.query;
-    if (!(data.validate && data.validate.toLowerCase() === "karmapa khyenno")) {
+    if (!(data.validate && data.validate.toLowerCase().trim() === "karmapa khyenno")) {
         return res.apiResponse ({
             mantras: {
                 error:'Please try again, typing the two words below carefully.'
@@ -29,9 +29,8 @@ exports.create = function(req, res) {
             if (err2) return res.apiError('error', 'problem querying for mantra posts: ' + err2);
             posts.forEach(function (post) {
                 try {
-                    resContent.totalCount += post.count;
-                    if (post.message && post.message.md) {
-                        resContent.messages.push(post.message.md);
+                    if (NaN != parseInt(post.count)) {
+                        resContent.totalCount += parseInt(post.count);
                     }
                 } catch(err) {
                     console.error("bad record: " + err);
