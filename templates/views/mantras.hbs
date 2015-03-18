@@ -6,8 +6,8 @@
             <div style="text-align: center;" class="img-div"><img alt="17th Gyalwang Karmapa" src="/images/karmapa_17.jpg" class="img-responsive img-responsive-center"/></div>
             <h4 style="text-align: center;">Six-syllable mantras of Avalokitshvara recited<br/>with devotion and gratitude to Karmapa Orgyen Trinley Dorje<br/>since Mar 16, 2015:</h4>
             <h1 id="totalCount" class="mantra-count" style="text-align: center">{{data.currCount}}</h1>
-            <h3 style="text-align: center;">The six-syllable mantra: "OM MA NI PE MAY HUNG"</h3>
-            <div class="img-div"><img alt="Chenrezig's mantra" src="/images/om-mani-padme-hum-mantra.png" class="img-responsive img-responsive-center" width="200px;"/></div>
+            <h4 style="text-align: center;">The six-syllable mantra: "OM MA NI PE MAY HUNG"</h4>
+            <div id="img-mani" class="img-div"><img alt="Chenrezig's mantra" src="/images/om-mani-padme-hum-mantra.png" class="img-responsive img-responsive-center" width="200px;"/></div>
             <h3 id="msg" style="text-align: center">Our goal is one million mantras during Karmapa's 2015 US tour. Offer yours here:</h3>
             <form id="mantraForm" method="post" action="api/mantras">
                 <input type="hidden" name="action" value="mantra">
@@ -40,20 +40,34 @@
                     count = $form.find( "input[name='count']" ).val(),
                     validate = $form.find( "input[name='validate']" ).val(),
                     url = $form.attr( "action" );
-            $.post( url, {
-                'count': count,
-                'validate': validate
-            }).done(function( data ) {
-                console.log("json: " + JSON.stringify(data));
-                if (data.mantras.error) {
-                    $('#msg').empty().append("<div class='has-error'>" + data.mantras.error +"</div>");
-                } else {
-                    var msg = "<div class='great-success'><strong>You submitted " + data.mantras.submitted + " mantras.</strong><br/><br/>Please dedicate the merit to " +
-                            "enlightenment for the temporary and ultimate benefit of all beings!</div>";
-                    $('#msg').empty().append(msg);
-                    $('#totalCount').empty().append(data.mantras.totalCount);
-                }
-            });
+            if (count && !isNaN(parseInt(count, 10))) {
+                $.post( url, {
+                    'count': parseInt(count, 10),
+                    'validate': validate
+                }).done(function( data ) {
+                    console.log("json: " + JSON.stringify(data));
+                    if (data.mantras.error) {
+                        $('#msg').empty().append("<div class='has-error'>" + data.mantras.error +"</div>");
+                    } else {
+                        var msg = "<div class='great-success'><strong>You submitted " + data.mantras.submitted + " mantras.</strong><br/><br/>Please dedicate the merit to " +
+                                "enlightenment for the temporary and ultimate benefit of all beings!</div>";
+                        $('#msg').empty().append(msg);
+                        $('#totalCount').empty().append(data.mantras.totalCount);
+                        // clear the count from the form (leave the validate text)
+                        $('#count').val('');
+                        // scroll up to the result
+                        $('html, body').animate({
+                            scrollTop: $("#totalCount").offset().top
+                        }, {
+                            duration: 500,
+                            complete: function() {
+                                $('.great-success').highlight(2000);
+                            }
+                        });
+
+                    }
+                });
+            }
         });
     });
 </script>

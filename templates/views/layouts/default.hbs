@@ -103,6 +103,26 @@
 		--}}
 		<script src="/js/lib/bootstrap/bootstrap-3.2.0.min.js"></script>
         <script src="/js/lib/bootstrap/bootstrap.lightbox.js"></script>
+        <script>
+            // add a yellow flash highlight function
+            jQuery.fn.highlight = function (duration) {
+                var fadeOut = duration || 1000;
+                $(this).each(function () {
+                    var el = $(this);
+                    $("<div/>")
+                            .width(el.outerWidth())
+                            .height(el.outerHeight())
+                            .css({
+                                "position": "absolute",
+                                "left": el.offset().left,
+                                "top": el.offset().top,
+                                "background-color": "#ffff99",
+                                "opacity": ".7",
+                                "z-index": "9999999"
+                            }).appendTo('body').fadeOut(fadeOut).queue(function () { $(this).remove(); });
+                });
+            }
+        </script>
         {{{isAdminEditorJS user}}}
 	</body>
 </html>
