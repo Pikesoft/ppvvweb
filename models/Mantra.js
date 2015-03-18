@@ -13,7 +13,7 @@ var Mantra = new keystone.List('Mantra', {
 
 Mantra.add({
     count: { type: Types.Number, required: true },
-    message: { type: Types.Markdown, required: false },
+    ipAddress: { type: String, required: false },
     createdAt: { type: Date, default: Date.now }
 });
 
