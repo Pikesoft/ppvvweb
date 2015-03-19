@@ -41,11 +41,13 @@
                     validate = $form.find( "input[name='validate']" ).val(),
                     url = $form.attr( "action" );
             if (count && !isNaN(parseInt(count, 10))) {
+                $('#btnSubmit').text("Submitting...");
                 $.post( url, {
                     'count': parseInt(count, 10),
                     'validate': validate
                 }).done(function( data ) {
-                    console.log("json: " + JSON.stringify(data));
+                    //console.log("json: " + JSON.stringify(data));
+                    $('#btnSubmit').text("Submit");
                     if (data.mantras.error) {
                         $('#msg').empty().append("<div class='has-error'>" + data.mantras.error +"</div>");
                     } else {
