@@ -31,7 +31,8 @@ exports.initLocals = function(req, res, next) {
         { label: 'Calendar',    key: 'calendar',	href: '/calendar' },
         { label: 'Dharma',      key: 'dharma',	    href: '/dharma' },
         { label: 'Blog',		key: 'blog',		href: '/blog' },
-		{ label: 'Gallery',		key: 'gallery',		href: '/gallery' },
+        { label: 'Support',		key: 'support',		href: '/greatvehicle' },
+        { label: 'Gallery',		key: 'gallery',		href: '/gallery' },
         { label: 'About',		key: 'about',		href: '/about' },
         { label: 'Contact',		key: 'contact',		href: '/contact' },
         { label: 'Million Manis',		key: 'mantras',		href: '/mantras' }

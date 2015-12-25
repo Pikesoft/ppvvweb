@@ -45,6 +45,7 @@ exports = module.exports = function(app) {
     app.all('/teachers', routes.views.teachers);
     app.all('/calendar', routes.views.calendar);
     app.all('/dharma', routes.views.dharma);
+    app.all('/greatvehicle', routes.views.greatvehicle);
     app.all('/about', routes.views.about);
     app.get('/mantras', routes.views.mantras);
     app.all('/api/mantras', keystone.initAPI, routes.api.mantras.create);
